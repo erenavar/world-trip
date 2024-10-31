@@ -1,5 +1,11 @@
 import React from "react";
+import PageNav from "../components/PageNav";
 
 export default function PricingPage() {
-  return <div>PricingPage</div>;
+  return (
+    <div>
+      <PageNav />
+      <div>Pricing Page</div>
+    </div>
+  );
 }
