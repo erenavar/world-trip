@@ -5,7 +5,6 @@ export default function PricingPage() {
   return (
     <div>
       <PageNav />
-      <div>Pricing Page</div>
     </div>
   );
 }
