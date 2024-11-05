@@ -12,7 +12,7 @@ export default function SideBar() {
 
       <p>List of Cities</p>
       <footer className={styles.footer}>
-        <p className={styles.copyright} >Lorem, ipsum dolor. {new Date().getFullYear}</p>
+        <p className={styles.copyright}>Lorem, ipsum dolor. {new Date().getFullYear()}</p>
       </footer>
     </div>
   )
