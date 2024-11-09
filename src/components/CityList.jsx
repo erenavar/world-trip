@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
+import styles from './CityList.module.css'
 
 export default function CityList() {
     return (
-        <div>CityList</div>
+        <ul className={styles.CityList}>CityList</ul>
     )
 }
