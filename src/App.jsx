@@ -19,9 +19,17 @@ export default function App() {
   }, []);
 
   const fetchCities = async () => {
-    const res = await fetch(`${BASE_URL}/cities`);
-    const data = await res.json();
-    setCities(data);
+    try {
+      setIsLoading(true);
+      const res = await fetch(`${BASE_URL}/cities`);
+      const data = await res.json();
+      setCities(data);
+    } catch (error) {
+      alert("There was an error loading data");
+      console.log("fetchCities error", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
