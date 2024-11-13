@@ -1,6 +1,16 @@
 import React from "react";
 import styles from "./CityList.module.css";
+import Spinner from "./Spinner";
+import CityItem from "./CityItem";
 
 export default function CityList({ cities, isLoading }) {
-  return <ul className={styles.CityList}>CityList</ul>;
+  if (isLoading) return <Spinner />;
+
+  return (
+    <ul className={styles.CityList}>
+      {cities.map((city) => (
+        <CityItem city={city} key={city.id} />
+      ))}
+    </ul>
+  );
 }
