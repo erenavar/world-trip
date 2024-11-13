@@ -1,7 +1,7 @@
 import React from "react";
 
 function CityItem({ city }) {
-  return <li>city</li>;
+  return <ul>city</ul>;
 }
 
 export default CityItem;
