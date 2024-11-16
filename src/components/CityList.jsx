@@ -7,7 +7,7 @@ export default function CityList({ cities, isLoading }) {
   if (isLoading) return <Spinner />;
 
   return (
-    <ul className={styles.CityList}>
+    <ul className={styles.cityList}>
       {cities.map((city) => (
         <CityItem city={city} key={city.id} />
       ))}
