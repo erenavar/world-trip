@@ -4,6 +4,9 @@
   list-style: none;
   overflow-y: scroll;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
 }
 
 .cityList::-webkit-scrollbar {
