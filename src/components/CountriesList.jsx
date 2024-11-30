@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./CountriesList.module.css";
 import Spinner from "./Spinner";
-import CityItem from "./CityItem";
 import Message from "./Message";
+import CountryItem from "./CountryItem";
 
 export default function CountriesList({ cities, isLoading }) {
   if (isLoading) return <Spinner />;
@@ -10,10 +10,12 @@ export default function CountriesList({ cities, isLoading }) {
   if (!cities.length)
     return <Message message="Add your first city by clicking on the map" />;
 
+  const countries = [];
+
   return (
     <ul className={styles.countriesList}>
-      {cities.map((city) => (
-        <CityItem city={city} key={city.id} />
+      {countries.map((country) => (
+        <CountryItem city={country} />
       ))}
     </ul>
   );
