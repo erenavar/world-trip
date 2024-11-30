@@ -10,12 +10,17 @@ export default function CountriesList({ cities, isLoading }) {
   if (!cities.length)
     return <Message message="Add your first city by clicking on the map" />;
 
-  const countries = [];
+  const countries = cities.reduce((arr, city) => {
+    console.log("city", city);
+    if (!arr.map((el) => el.city).includes(city.country))
+      return [...arr, { country: city.country, emoji: city.emoji }];
+    else return arr;
+  }, []);
 
   return (
     <ul className={styles.countriesList}>
       {countries.map((country) => (
-        <CountryItem city={country} />
+        <CountryItem country={country} />
       ))}
     </ul>
   );
