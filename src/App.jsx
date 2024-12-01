@@ -8,6 +8,7 @@ import AppLayout from "./pages/AppLayout";
 import Login from "./pages/LoginPage";
 import CityList from "./components/CityList";
 import CountriesList from "./components/CountriesList";
+import City from "./components/City";
 
 const BASE_URL = "http://localhost:9000";
 
