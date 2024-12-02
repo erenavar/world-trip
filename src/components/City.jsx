@@ -1,7 +1,9 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 const City = () => {
-  return <div>City</div>;
+  const { id } = useParams();
+  return <div>City {id}</div>;
 };
 
 export default City;
