@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import ProductPage from "./pages/ProductPage";
 import HomePage from "./pages/HomePage";
 import PricingPage from "./pages/PricingPage";
@@ -11,30 +11,7 @@ import CountriesList from "./components/CountriesList";
 import City from "./components/City";
 import Form from "./components/Form";
 
-const BASE_URL = "http://localhost:9000";
-
 export default function App() {
-  const [cities, setCities] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    fetchCities();
-  }, []);
-
-  const fetchCities = async () => {
-    try {
-      setIsLoading(true);
-      const res = await fetch(`${BASE_URL}/cities`);
-      const data = await res.json();
-      setCities(data);
-    } catch (error) {
-      alert("There was an error loading data");
-      console.log("fetchCities error", error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   return (
     <div>
       <BrowserRouter>
@@ -46,16 +23,19 @@ export default function App() {
           <Route path="app" element={<AppLayout />}>
             <Route
               index
-              element={<CityList cities={cities} isLoading={isLoading} />}
+              element={<Navigate replace to="cities" />}
+              isLoading={isLoading}
             />
             <Route
               path="cities"
-              element={<CityList cities={cities} isLoading={isLoading} />}
+              element={<CityList cities={cities} />}
+              isLoading={isLoading}
             />
             <Route path="cities/:id" element={<City />} />
             <Route
               path="countries"
-              element={<CountriesList cities={cities} isLoading={isLoading} />}
+              element={<CountriesList cities={cities} />}
+              isLoading={isLoading}
             />
             <Route path="form" element={<Form />} />
           </Route>
