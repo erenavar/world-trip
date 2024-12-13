@@ -1,7 +1,7 @@
-import { useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
+const CitiesContext = createContext();
 const BASE_URL = "http://localhost:9000";
-const citiesContext = useContext();
 
 function CitiesProvider({ children }) {
   const [cities, setCities] = useState([]);
@@ -24,6 +24,15 @@ function CitiesProvider({ children }) {
       setIsLoading(false);
     }
   };
+  return (
+    <CitiesContext.Provider
+      value={{
+        cities,
+        isLoading,
+      }}>
+      {children}
+    </CitiesContext.Provider>
+  );
 }
 
-export default CitiesProvider;
+export { CitiesProvider };
