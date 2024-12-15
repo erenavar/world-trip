@@ -24,6 +24,7 @@ function CitiesProvider({ children }) {
       setIsLoading(false);
     }
   };
+
   return (
     <CitiesContext.Provider
       value={{
