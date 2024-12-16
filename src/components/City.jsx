@@ -2,10 +2,12 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useCities } from "../contexts/CitiesContext";
 import styles from "./City.module.css";
+import { isElement } from "react-dom/test-utils";
+import Spinner from "./Spinner";
 
 const City = () => {
   const { id } = useParams();
-  const { getCity, currentCity } = useCities();
+  const { getCity, currentCity, isLoading } = useCities();
 
   useEffect(() => {
     getCity(id);
@@ -20,6 +22,8 @@ const City = () => {
       year: "numeric",
       weekday: "long",
     }).format(new Date(date));
+
+  if (isLoading) return <Spinner />;
 
   return (
     <div className={styles.city}>
