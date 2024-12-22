@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useCities } from "../contexts/CitiesContext";
 import styles from "./City.module.css";
-import { isElement } from "react-dom/test-utils";
 import Spinner from "./Spinner";
+import BackButton from "./BackButton";
 
 const City = () => {
   const { id } = useParams();
@@ -54,6 +54,9 @@ const City = () => {
           rel="noreferrer">
           Check out {cityName} on Wikipedia &rarr;
         </a>
+      </div>
+      <div>
+        <BackButton />
       </div>
     </div>
   );
